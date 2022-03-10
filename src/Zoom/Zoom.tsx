@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
-import { TransitionEffectProps } from "../types";
+import { Direction, TransitionEffectProps } from "../types";
 
-const transform = ({ active, direction }: SlideProps) => {
+const transform = ({ active, direction }: ZoomProps) => {
   if (active) {
     return "none";
   }
@@ -28,13 +28,11 @@ const useStyles = makeStyles({
   },
 });
 
-export type Direction = [number, number];
-
-interface SlideProps extends TransitionEffectProps {
+interface ZoomProps extends TransitionEffectProps {
   direction: Direction;
 }
 
-const Zoom: React.FC<SlideProps> = ({ active, direction, children }) => {
+const Zoom: React.FC<ZoomProps> = ({ active, direction, children }) => {
   const classes = useStyles({ active, direction });
   return <div className={classes.Zoom}>{children}</div>;
 };
