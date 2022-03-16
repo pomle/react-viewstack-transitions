@@ -1,11 +1,11 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/styles';
-import { TransitionEffectProps } from '../types';
-import { pointerEvents } from '../states';
+import React from "react";
+import { makeStyles } from "@material-ui/styles";
+import { Direction, TransitionEffectProps } from "../types";
+import { pointerEvents } from "../states";
 
 const transform = ({ active, direction }: SlideProps) => {
   if (active) {
-    return 'none';
+    return "none";
   }
 
   const [x, y] = direction;
@@ -18,15 +18,13 @@ const transform = ({ active, direction }: SlideProps) => {
 
 const useStyles = makeStyles({
   Slide: {
-    boxShadow: '0 0 20px -10px',
-    height: '100%',
+    boxShadow: "0 0 20px -10px",
+    height: "100%",
     pointerEvents,
     transform,
-    transition: 'all 0.3s ease',
+    transition: "all 0.3s ease",
   },
 });
-
-export type Direction = [number, number];
 
 interface SlideProps extends TransitionEffectProps {
   direction: Direction;

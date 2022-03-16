@@ -1,7 +1,7 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/styles';
-import { TransitionEffectProps } from '../types';
-import { pointerEvents } from '../states';
+import React from "react";
+import { makeStyles } from "@material-ui/styles";
+import { TransitionEffectProps } from "../types";
+import { pointerEvents } from "../states";
 
 const opacity = ({ active }: TransitionEffectProps) => {
   return active ? 1 : 0;
@@ -9,10 +9,10 @@ const opacity = ({ active }: TransitionEffectProps) => {
 
 const useStyles = makeStyles({
   Fade: {
-    height: '100%',
+    height: "100%",
     opacity,
     pointerEvents,
-    transition: 'opacity 0.5s ease',
+    transition: "opacity 0.5s ease",
   },
 });
 
