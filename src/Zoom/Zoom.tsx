@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Direction, TransitionEffectProps } from "../types";
 
-const transform = ({ active, direction }: ZoomProps) => {
+function transform({ active, direction }: Omit<ZoomProps, "children">) {
   if (active) {
     return "none";
   }
@@ -16,7 +16,7 @@ const transform = ({ active, direction }: ZoomProps) => {
     )
     scale(1.5)
   `;
-};
+}
 
 const useStyles = makeStyles({
   Zoom: {
@@ -32,9 +32,7 @@ interface ZoomProps extends TransitionEffectProps {
   direction: Direction;
 }
 
-const Zoom: React.FC<ZoomProps> = ({ active, direction, children }) => {
+export default function Zoom({ active, direction, children }: ZoomProps) {
   const classes = useStyles({ active, direction });
   return <div className={classes.Zoom}>{children}</div>;
-};
-
-export default Zoom;
+}
