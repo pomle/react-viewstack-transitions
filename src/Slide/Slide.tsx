@@ -14,6 +14,15 @@ function transform({ active, direction }: Omit<SlideProps, "children">) {
   )`;
 }
 
+const style = document.createElement("style");
+style.textContent = `
+.pomle-react-viewstack-slide {
+  boxShadow: 0 0 20px -10px;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+`;
+
 interface SlideProps extends TransitionEffectProps {
   direction: Direction;
 }
@@ -21,12 +30,10 @@ interface SlideProps extends TransitionEffectProps {
 export default function Slide({ active, direction, children }: SlideProps) {
   return (
     <div
+      className='pomle-react-viewstack-slide'
       style={{
-        boxShadow: "0 0 20px -10px",
-        height: "100%",
         pointerEvents: active ? "all" : "none",
         transform: transform({ active, direction }),
-        transition: "all 0.3s ease",
       }}
     >
       {children}
