@@ -17,6 +17,16 @@ function transform({ active, direction }: Omit<ZoomProps, "children">) {
   `;
 }
 
+const style = document.createElement("style");
+style.textContent = `
+.pomle-react-viewstack-zoom {
+  height: 100%;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+`;
+
+document.head.appendChild(style);
+
 interface ZoomProps extends TransitionEffectProps {
   direction: Direction;
 }
@@ -24,12 +34,11 @@ interface ZoomProps extends TransitionEffectProps {
 export default function Zoom({ active, direction, children }: ZoomProps) {
   return (
     <div
+      className='pomle-react-viewstack-zoom'
       style={{
-        height: "100%",
         opacity: active ? 1 : 0,
         pointerEvents: active ? "all" : "none",
         transform: transform({ active, direction }),
-        transition: "all 0.3s ease",
       }}
     >
       {children}

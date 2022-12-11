@@ -1,14 +1,21 @@
 import React from "react";
 import { TransitionEffectProps } from "../types";
 
+const style = document.createElement("style");
+style.textContent = `
+.pomle-react-viewstack-fade {
+  height: 100%;
+  transition: opacity 0.5s ease;
+}
+`;
+
 export default function Fade({ active, children }: TransitionEffectProps) {
   return (
     <div
+      className='pomle-react-viewstack-fade'
       style={{
-        height: "100%",
         opacity: active ? 1 : 0,
         pointerEvents: active ? "all" : "none",
-        transition: "opacity 0.5s ease",
       }}
     >
       {children}
