@@ -1,4 +1,5 @@
 import React from "react";
+import { addStyle } from "../style";
 import { Direction, TransitionEffectProps } from "../types";
 
 function transform({ active, direction }: Omit<ZoomProps, "children">) {
@@ -17,15 +18,11 @@ function transform({ active, direction }: Omit<ZoomProps, "children">) {
   `;
 }
 
-const style = document.createElement("style");
-style.textContent = `
+addStyle(`
 .pomle-react-viewstack-zoom {
   height: 100%;
   transition: transform 0.3s ease, opacity 0.3s ease;
-}
-`;
-
-document.head.appendChild(style);
+}`);
 
 interface ZoomProps extends TransitionEffectProps {
   direction: Direction;

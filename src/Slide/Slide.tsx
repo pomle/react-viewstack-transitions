@@ -1,4 +1,5 @@
 import React from "react";
+import { addStyle } from "../style";
 import { Direction, TransitionEffectProps } from "../types";
 
 function transform({ active, direction }: Omit<SlideProps, "children">) {
@@ -14,14 +15,12 @@ function transform({ active, direction }: Omit<SlideProps, "children">) {
   )`;
 }
 
-const style = document.createElement("style");
-style.textContent = `
+addStyle(`
 .pomle-react-viewstack-slide {
   boxShadow: 0 0 20px -10px;
   height: 100%;
   transition: transform 0.3s ease;
-}
-`;
+}`);
 
 interface SlideProps extends TransitionEffectProps {
   direction: Direction;
