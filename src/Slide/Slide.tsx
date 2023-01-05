@@ -17,7 +17,7 @@ function transform({ active, direction }: Omit<SlideProps, "children">) {
 
 addStyle(`
 .pomle-react-viewstack-slide {
-  boxShadow: 0 0 20px -10px;
+  box-shadow: 0 0 20px -10px;
   height: 100%;
   transition: transform 0.3s ease;
 }`);
